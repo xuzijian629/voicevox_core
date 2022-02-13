@@ -26,8 +26,7 @@ RUN cd /voicevox/lib \
 &&  ln -s ./libcudart-6d56b25a.so.11.0 ./libcudart.so.11.0
 
 # Set up built libraries
-RUN curl -sLO "`curl -s https://api.github.com/repos/Hiroshiba/voicevox_core/releases/latest \
-    | jq -r '.assets[]|select(.name=="core.zip")|.browser_download_url'`"
+RUN curl -sLO "https://github.com/VOICEVOX/voicevox_core/releases/download/0.9.0/core.zip"
 RUN unzip -q core.zip && rm core.zip
 RUN mv core/* /voicevox/
 
